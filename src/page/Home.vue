@@ -3,9 +3,7 @@
     <div class="cover" :style="{ backgroundImage: 'url(' + background + ')' }">
     </div>
     <div class="action">
-      <div class="button">
-        下载
-      </div>
+      <button class="button is-danger">下载</button>
     </div>
     <input placeholder="phone" />
   </div>
