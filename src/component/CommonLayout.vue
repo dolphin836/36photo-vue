@@ -1,10 +1,13 @@
 <template>
     <div class="app">
-        <header class="header"></header>
+        <Nav></Nav>
         <main class="main">
-            <router-view></router-view>
+            <Header></Header>
+            <div class="content">
+                <router-view></router-view>
+            </div>
+            <Footer></Footer>
         </main>
-        <Footer></Footer>
     </div>
     <div class="pageloader" :class="[ isLoading ? 'is-active' : '' ]">
         <span class="title">Loading</span>
@@ -12,16 +15,20 @@
 </template>
 
 <script>
+import Nav from './Nav.vue'
+import Header from './Header.vue'
 import Footer from './Footer.vue'
 import { ref } from 'vue'
 
 export default {
     name: 'CommomLayoutComponent',
     components: {
+        Nav,
+        Header,
         Footer
     },
     setup () {
-        const isLoading = ref(true)
+        const isLoading = ref(false)
         // Load 动画
         setTimeout(function () {
             isLoading.value = false
@@ -37,9 +44,13 @@ export default {
 <style lang="sass" scoped>
 .app
     display: flex
-    min-height: 100vh
-    flex-direction: column
 
     .main
         flex: 1
+        display: flex
+        min-height: 100vh
+        flex-direction: column
+
+        .content
+            flex: 1
 </style>
