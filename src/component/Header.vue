@@ -60,7 +60,6 @@ export default {
 <style lang="sass" scoped>
 .level
     padding: .5rem 1rem
-    border-bottom: 1px solid #DADCE0
 
     .bar,
     .avatar
