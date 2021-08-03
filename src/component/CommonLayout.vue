@@ -4,6 +4,7 @@
         <main class="main">
             <Header></Header>
             <div class="content">
+                <Breadcrumb></Breadcrumb>
                 <router-view></router-view>
             </div>
             <Footer></Footer>
@@ -17,6 +18,7 @@
 <script>
 import Nav from './Nav.vue'
 import Header from './Header.vue'
+import Breadcrumb from './Breadcrumb.vue'
 import Footer from './Footer.vue'
 import { ref } from 'vue'
 
@@ -25,6 +27,7 @@ export default {
     components: {
         Nav,
         Header,
+        Breadcrumb,
         Footer
     },
     setup () {
