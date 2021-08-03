@@ -1,41 +1,45 @@
 <template>
-    <div class="main">
-        <div class="nav">
-            <ul>
-                <li>
-                    <router-link :to="{ name: 'Home'}">Home</router-link>
-                </li>
-                <li>
-                    <router-link :to="{ name: 'About'}">About</router-link>
-                </li>
-            </ul>
-        </div>
-        <div class="content">
+    <div class="app">
+        <header class="header"></header>
+        <main class="main">
             <router-view></router-view>
-        </div>
+        </main>
+        <Footer></Footer>
+    </div>
+    <div class="pageloader" :class="[ isLoading ? 'is-active' : '' ]">
+        <span class="title">Loading</span>
     </div>
 </template>
 
 <script>
+import Footer from './Footer.vue'
+import { ref } from 'vue'
+
 export default {
-  name: 'CommomLayoutComponent',
-};
+    name: 'CommomLayoutComponent',
+    components: {
+        Footer
+    },
+    setup () {
+        const isLoading = ref(true)
+        // Load 动画
+        setTimeout(function () {
+            isLoading.value = false
+        }, 1000)
+
+        return {
+            isLoading
+        }
+    }
+}
 </script>
 
 <style lang="sass" scoped>
-.main
-    height: auto !important
-    
-    .nav
-        position: fixed
-        top: 0
-        left: 0
-        z-index: 10
-        background: linear-gradient(rgba(0, 0, 0, 0.5), transparent)
-        width: 100%
-        height: 50px
+.app
+    display: flex
+    min-height: 100vh
+    flex-direction: column
 
-    .content
-        width: 100%
-        height: auto !important
+    .main
+        flex: 1
 </style>
