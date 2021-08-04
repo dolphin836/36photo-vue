@@ -2,8 +2,8 @@
     <aside class="menu">
         <p class="menu-label">General</p>
         <ul class="menu-list">
-            <li><a class="is-active">Dashboard</a></li>
-            <li><a>Customers</a></li>
+            <li><router-link :to="{ name: 'Home'}">Home</router-link></li>
+            <li><router-link :to="{ name: 'About'}">About</router-link></li>
         </ul>
     </aside>
 </template>

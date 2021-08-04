@@ -1,15 +1,19 @@
 <template>
-  <h1>Home</h1>
+    <h1>Home</h1>
 </template>
 
 <script>
-export default {
-  name: 'Home',
-  data() {
-    return {
+import store from '../store'
 
+export default {
+    name: 'Home',
+    setup() {
+        store.UPDATE_BREADCRUMB([
+            {
+                'name': '首页'
+            }
+        ])
     }
-  }
 }
 </script>
 

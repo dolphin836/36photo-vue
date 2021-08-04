@@ -3,7 +3,7 @@
         <Nav></Nav>
         <main class="main">
             <Header></Header>
-            <div class="content">
+            <div class="page">
                 <Breadcrumb></Breadcrumb>
                 <router-view></router-view>
             </div>
@@ -54,6 +54,6 @@ export default {
         min-height: 100vh
         flex-direction: column
 
-        .content
+        .page
             flex: 1
 </style>

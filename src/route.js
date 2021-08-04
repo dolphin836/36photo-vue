@@ -13,12 +13,12 @@ const routes = [
       {
         path: '',
         name: 'Home',
-        component: Home,
+        component: Home
       },
       {
         path: 'about',
         name: 'About',
-        component: About,
+        component: About
       }
     ]
   }
@@ -27,15 +27,15 @@ const routes = [
 const route = createRouter({
   history: createWebHistory(),
   routes: routes
-});
+})
 // 全局前置守卫
 route.beforeEach((to, from, next) => {
-  nProgress.start();
-  next();
-});
+  nProgress.start()
+  next()
+})
 // 全局后置守卫
 route.afterEach(() => {
-  nProgress.done();
-});
+  nProgress.done()
+})
 
-export default route;
+export default route
