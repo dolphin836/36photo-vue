@@ -1,5 +1,7 @@
 <template>
-    <h1>Home</h1>
+    <figure class="image">
+        <img src="../asset/1.jpg" alt="" />
+    </figure>
 </template>
 
 <script>
@@ -18,5 +20,4 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-
 </style>
