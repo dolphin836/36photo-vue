@@ -41,7 +41,7 @@ export default {
             // 监听 Load 事件，关闭 Load 动画
             window.addEventListener('load', () => {
                 isLoading.value = false
-            })
+            }, true)
         })
 
         return {
