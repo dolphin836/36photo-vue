@@ -5,142 +5,23 @@
                 <img :src="logo" alt="Logo" />
             </figure>
         </router-link>
-        <p class="menu-label">LIFE</p>
-        <ul class="menu-list">
-            <li>
-                <router-link :to="{ name: 'Sns'}" active-class="has-background-primary has-text-white">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fa fa-user-circle"></i>
-                        </span>
-                        <span>动态</span>
-                    </span>
-                </router-link>
-            </li>
-            <li>
-                <router-link :to="{ name: 'Fm'}" active-class="has-background-primary has-text-white">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fa fa-headphones"></i>
-                        </span>
-                        <span>音乐</span>
-                    </span>
-                </router-link>
-            </li>
-            <li>
-                <router-link :to="{ name: 'VideoList'}" active-class="has-background-primary has-text-white">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fab fa-youtube"></i>
-                        </span>
-                        <span>视频</span>
-                    </span>
-                </router-link>
-            </li>
-            <li>
-                <router-link :to="{ name: 'Film'}" active-class="has-background-primary has-text-white">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fa fa-film"></i>
-                        </span>
-                        <span>电影</span>
-                    </span>
-                </router-link>
-            </li>
-            <li>
-                <router-link :to="{ name: 'Photo'}" active-class="has-background-primary has-text-white">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fa fa-camera"></i>
-                        </span>
-                        <span>照片</span>
-                    </span>
-                </router-link>
-            </li>
-            <li>
-                <router-link :to="{ name: 'Book'}" active-class="has-background-primary has-text-white">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fa fa-tags"></i>
-                        </span>
-                        <span>阅读</span>
-                    </span>
-                </router-link>
-            </li>
-            <li>
-                <router-link :to="{ name: 'Text'}" active-class="has-background-primary has-text-white">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fa fa-clone"></i>
-                        </span>
-                        <span>语录</span>
-                    </span>
-                </router-link>
-            </li>
-            <li>
-                <router-link :to="{ name: 'Awesome'}" active-class="has-background-primary has-text-white">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fab fa-chrome"></i>
-                        </span>
-                        <span>导航</span>
-                    </span>
-                </router-link>
-            </li>
-            <li>
-                <router-link :to="{ name: 'Game'}">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fab fa-steam" active-class="has-background-primary has-text-white"></i>
-                        </span>
-                        <span>游戏</span>
-                    </span>
-                </router-link>
-            </li>
-        </ul>
-        <p class="menu-label">WORK</p>
-        <ul class="menu-list">
-            <li>
-                <router-link :to="{ name: 'Work'}" active-class="has-background-primary has-text-white">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fa fa-id-badge"></i>
-                        </span>
-                        <span>简历</span>
-                    </span>
-                </router-link>
-            </li>
-            <li>
-                <router-link :to="{ name: 'Blog'}" active-class="has-background-primary has-text-white">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fab fa-wordpress"></i>
-                        </span>
-                        <span>博客</span>
-                    </span>
-                </router-link>
-            </li>
-            <li>
-                <router-link :to="{ name: 'Note'}" active-class="has-background-primary has-text-white">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fa fa-bookmark"></i>
-                        </span>
-                        <span>笔记</span>
-                    </span>
-                </router-link>
-            </li>
-            <li>
-                <router-link :to="{ name: 'Open'}" exact-active-class="has-background-primary has-text-white">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fab fa-linux"></i>
-                        </span>
-                        <span>开源</span>
-                    </span>
-                </router-link>
-            </li>
-        </ul>
+        <template v-for="(group, i) in data" :key="i">
+            <p class="menu-label">{{ group.group }}</p>
+            <ul class="menu-list">
+                <template v-for="(route, k) in group.route" :key="k">
+                    <li>
+                        <router-link :to="{ name: route.name }" active-class="has-background-primary has-text-white">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i :class="route.icon"></i>
+                                </span>
+                                <span>{{ route.text }}</span>
+                            </span>
+                        </router-link>
+                    </li>
+                </template>
+            </ul>
+        </template>
         <p class="menu-label">LINK</p>
         <ul class="menu-list">
             <li>
@@ -169,12 +50,40 @@
 
 <script>
 import logo from '../asset/logo.svg'
+import { routes } from '../route'
 
 export default {
     name: 'NavComponent',
     data () {
         return {
             logo
+        }
+    },
+    setup () {
+        // 整理数据
+        const groupMap = {}
+
+        routes[0].children.forEach(route => {
+            if (route.hasOwnProperty('text')) {
+                if (! groupMap.hasOwnProperty(route.group)) {
+                    groupMap[route.group] = []
+                }
+
+                groupMap[route.group].push(route)
+            }
+        })
+        // 转成数组
+        const data = []
+
+        for (const group in groupMap) {
+            data.push({
+                group: group,
+                route: groupMap[group]
+            })
+        }
+
+        return {
+            data
         }
     }
 }
