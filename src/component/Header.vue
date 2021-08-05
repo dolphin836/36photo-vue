@@ -92,4 +92,5 @@ export default {
 .level
     padding: .5rem 1rem
     border-bottom: 1px solid hsl(0, 0%, 86%)
+    margin-bottom: 1rem
 </style>

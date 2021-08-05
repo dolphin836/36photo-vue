@@ -28,3 +28,7 @@ export default {
     }
 }
 </script>
+<style lang="sass" scoped>
+.breadcrumb
+    padding: 0 1rem
+</style>
