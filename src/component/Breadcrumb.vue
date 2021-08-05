@@ -16,6 +16,7 @@
 <script>
 import store from '../store'
 import { computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
 export default {
     name: 'BreadcrumbComponent',

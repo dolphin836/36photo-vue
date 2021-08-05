@@ -10,7 +10,6 @@
 import videojs from 'video.js'
 import 'video.js/dist/video-js.min.css'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import store from '../../store'
 
 export default {
     name: 'VideoView',
@@ -18,21 +17,6 @@ export default {
         code: String
     },
     setup (props) {
-        // 设置路径导航
-        store.UPDATE_BREADCRUMB([
-            {
-                'name': '首页',
-                'href': 'Home'
-            },
-            {
-                'name': '视频',
-                'href': 'VideoList'
-            },
-            {
-                'name': '详情'
-            }
-        ])
-        //
         const videoRef = ref()
         const player = ref()
         const name = ref('')
