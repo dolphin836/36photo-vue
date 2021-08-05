@@ -32,10 +32,10 @@ export default {
     },
     setup () {
         const isLoading = ref(true)
-        // 最多 3 秒后关闭 Load 动画
+        // 最多 2 秒后关闭 Load 动画
         setTimeout(function () {
             isLoading.value = false
-        }, 3000)
+        }, 2000)
 
         onMounted(() => {
             // 监听 Load 事件，关闭 Load 动画
