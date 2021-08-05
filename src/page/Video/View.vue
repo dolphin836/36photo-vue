@@ -1,7 +1,9 @@
 <template>
-    <h1 class="title is-4 has-text-dark has-text-centered">{{ name }}</h1>
-    <p class="subtitle is-6 has-text-grey has-text-weight-light has-text-centered">{{ date }}</p>
-    <video ref="videoRef" class="video-js vjs-big-play-centered"></video>
+    <div class="container is-fluid pb-4">
+        <h1 class="title is-4 has-text-dark has-text-centered">{{ name }}</h1>
+        <p class="subtitle is-6 has-text-grey has-text-weight-light has-text-centered">{{ date }}</p>
+        <video ref="videoRef" class="video-js vjs-big-play-centered"></video>
+    </div>
 </template>
 
 <script>

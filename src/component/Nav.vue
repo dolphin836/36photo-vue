@@ -181,7 +181,6 @@ export default {
 </script>
 <style lang="sass" scoped>
 .menu
-    width: 256px
     min-height: 100vh
     padding: 1rem
     border-right: 1px solid hsl(0, 0%, 86%)
@@ -189,4 +188,7 @@ export default {
     .logo
         margin: 0 auto
         margin-bottom: 1rem
+
+    .menu-list
+        width: 5.6rem
 </style>

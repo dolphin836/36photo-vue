@@ -1,7 +1,7 @@
 <template>
-    <div class="app">
+    <div class="is-flex is-flex-direction-row app">
         <Nav></Nav>
-        <main class="main">
+        <main class="is-flex is-flex-direction-column main">
             <Header></Header>
             <div class="page">
                 <!-- <Breadcrumb></Breadcrumb> -->
@@ -53,17 +53,12 @@ export default {
 
 <style lang="sass" scoped>
 .app
-    display: flex
     min-width: 1280px
 
     .main
         flex: 1
-        display: flex
         min-height: 100vh
-        flex-direction: column
 
         .page
             flex: 1
-            padding: 0 1.6rem
-            padding-bottom: 1rem
 </style>
