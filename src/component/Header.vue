@@ -2,8 +2,17 @@
     <nav class="level">
         <div class="level-left">
             <div class="level-item">
-                <span class="icon is-large is-clickable">
-                    <i class="fas fa-bars fa-2x"></i>
+                <span @click="back" class="icon-text is-large is-clickable">
+                    <span class="icon">
+                        <i class="fa fa-arrow-alt-circle-left"></i>
+                    </span>
+                    <span>Back</span>
+                </span>
+                <span @click="next" class="icon-text is-large is-clickable ml-4">
+                    <span>Next</span>
+                    <span class="icon">
+                        <i class="fa fa-arrow-alt-circle-right"></i>
+                    </span>  
                 </span>
             </div>
         </div>
@@ -45,6 +54,7 @@
 <script>
 import avatar from '../asset/avatar.jpg'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 export default {
     name: 'HeaderComponent',
@@ -54,15 +64,26 @@ export default {
         }
     },
     setup () {
+        const router = useRouter()
         const isAvatar = ref(false) // 头像的下拉菜单是否显示
         // 点击头像
         const onAvatar = () => {
             isAvatar.value = ! isAvatar.value
         }
+        // Back
+        const back = () => {
+            router.back()
+        }
+        // Next
+        const next = () => {
+            router.forward()
+        }
 
         return {
             isAvatar,
-            onAvatar
+            onAvatar,
+            back,
+            next
         }
     }
 }
