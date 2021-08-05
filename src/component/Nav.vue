@@ -8,7 +8,7 @@
         <p class="menu-label">LIFE</p>
         <ul class="menu-list">
             <li>
-                <router-link :to="{ name: 'Sns'}">
+                <router-link :to="{ name: 'Sns'}" active-class="has-background-primary has-text-white">
                     <span class="icon-text">
                         <span class="icon">
                             <i class="fa fa-user-circle"></i>
@@ -18,7 +18,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'Fm'}">
+                <router-link :to="{ name: 'Fm'}" active-class="has-background-primary has-text-white">
                     <span class="icon-text">
                         <span class="icon">
                             <i class="fa fa-headphones"></i>
@@ -28,7 +28,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'Video'}">
+                <router-link :to="{ name: 'VideoList'}" active-class="has-background-primary has-text-white">
                     <span class="icon-text">
                         <span class="icon">
                             <i class="fab fa-youtube"></i>
@@ -38,7 +38,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'Film'}">
+                <router-link :to="{ name: 'Film'}" active-class="has-background-primary has-text-white">
                     <span class="icon-text">
                         <span class="icon">
                             <i class="fa fa-film"></i>
@@ -48,7 +48,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'Photo'}">
+                <router-link :to="{ name: 'Photo'}" active-class="has-background-primary has-text-white">
                     <span class="icon-text">
                         <span class="icon">
                             <i class="fa fa-camera"></i>
@@ -58,7 +58,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'Book'}">
+                <router-link :to="{ name: 'Book'}" active-class="has-background-primary has-text-white">
                     <span class="icon-text">
                         <span class="icon">
                             <i class="fa fa-tags"></i>
@@ -68,7 +68,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'Text'}">
+                <router-link :to="{ name: 'Text'}" active-class="has-background-primary has-text-white">
                     <span class="icon-text">
                         <span class="icon">
                             <i class="fa fa-clone"></i>
@@ -78,7 +78,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'Awesome'}">
+                <router-link :to="{ name: 'Awesome'}" active-class="has-background-primary has-text-white">
                     <span class="icon-text">
                         <span class="icon">
                             <i class="fab fa-chrome"></i>
@@ -91,7 +91,7 @@
                 <router-link :to="{ name: 'Game'}">
                     <span class="icon-text">
                         <span class="icon">
-                            <i class="fab fa-steam"></i>
+                            <i class="fab fa-steam" active-class="has-background-primary has-text-white"></i>
                         </span>
                         <span>游戏</span>
                     </span>
@@ -101,7 +101,7 @@
         <p class="menu-label">WORK</p>
         <ul class="menu-list">
             <li>
-                <router-link :to="{ name: 'Work'}">
+                <router-link :to="{ name: 'Work'}" active-class="has-background-primary has-text-white">
                     <span class="icon-text">
                         <span class="icon">
                             <i class="fa fa-id-badge"></i>
@@ -111,7 +111,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'Blog'}">
+                <router-link :to="{ name: 'Blog'}" active-class="has-background-primary has-text-white">
                     <span class="icon-text">
                         <span class="icon">
                             <i class="fab fa-wordpress"></i>
@@ -121,7 +121,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'Note'}">
+                <router-link :to="{ name: 'Note'}" active-class="has-background-primary has-text-white">
                     <span class="icon-text">
                         <span class="icon">
                             <i class="fa fa-bookmark"></i>
@@ -131,7 +131,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'Open'}">
+                <router-link :to="{ name: 'Open'}" exact-active-class="has-background-primary has-text-white">
                     <span class="icon-text">
                         <span class="icon">
                             <i class="fab fa-linux"></i>

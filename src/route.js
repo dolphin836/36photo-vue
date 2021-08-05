@@ -4,7 +4,8 @@ const CommonLayout = () => import('./component/CommonLayout.vue')
 const Home = () => import('./page/Home.vue')
 const Sns = () => import('./page/Sns.vue')
 const Fm = () => import('./page/Fm.vue')
-const Video = () => import('./page/Video/List.vue')
+const VideoList = () => import('./page/Video/List.vue')
+const VideoView = () => import('./page/Video/View.vue')
 const Film = () => import('./page/Film.vue')
 const Photo = () => import('./page/Photo.vue')
 const Book = () => import('./page/Book.vue')
@@ -38,8 +39,14 @@ const routes = [
       },
       {
         path: 'video',
-        name: 'Video',
-        component: Video
+        name: 'VideoList',
+        component: VideoList
+      },
+      {
+        path: 'video/:code',
+        name: 'VideoView',
+        component: VideoView,
+        props: true
       },
       {
         path: 'film',

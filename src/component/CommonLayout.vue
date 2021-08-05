@@ -54,6 +54,7 @@ export default {
 <style lang="sass" scoped>
 .app
     display: flex
+    min-width: 1280px
 
     .main
         flex: 1

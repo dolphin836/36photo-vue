@@ -10,12 +10,14 @@
         <template v-for="(item, i) in listMap" :key="i">
             <div class="column is-narrow">
                 <div class="video is-clickable">
-                    <figure class="image cover">
-                        <img :src="item.cover" alt="">
-                        <div class="play">
-                            <span class="icon is-medium has-text-white"><i class="fa fa-2x fa-play"></i></span>
-                        </div>
-                    </figure>
+                    <router-link :to="{ name: 'VideoView', params: { code: item.code } }">
+                        <figure class="image cover">
+                            <img :src="item.cover" alt="">
+                            <div class="play">
+                                <span class="icon is-medium has-text-white"><i class="fa fa-2x fa-play"></i></span>
+                            </div>
+                        </figure>
+                    </router-link>
                     <p class="subtitle is-6 has-text-dark mt-2 mb-2">{{ item.name }}</p>
                     <p class="subtitle is-7 has-text-grey has-text-weight-light">
                         {{ item.update_date  }}
@@ -31,7 +33,7 @@
 import { ref, onMounted } from 'vue'
 
 export default {
-    name: 'Video',
+    name: 'VideoList',
     setup () {
         const dataMap = ref([]) // 所有记录
         const listMap = ref([]) // 当前展示记录
@@ -70,8 +72,6 @@ export default {
                                     categoryData[index].count++ // 当前分类数量加一
                                     categoryData[0].count++ // 全部分类数量加一
                                 }
-
-                                return []
                             })
                             // 排序：按添加日期降序
                             source.sort(function (a, b) {
