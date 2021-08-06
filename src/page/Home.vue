@@ -1,7 +1,5 @@
 <template>
-    <figure class="image">
-        <img src="../asset/1.jpg" alt="" />
-    </figure>
+    Home
 </template>
 
 <script>
