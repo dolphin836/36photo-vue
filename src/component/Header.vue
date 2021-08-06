@@ -1,5 +1,5 @@
 <template>
-    <nav class="level">
+    <nav class="level is-mobile">
         <div class="level-left">
             <div class="level-item">
                 <span @click="back" class="icon-text is-large is-clickable">

@@ -4,8 +4,9 @@
         <main class="is-flex is-flex-direction-column main">
             <Header></Header>
             <div class="page">
-                <!-- <Breadcrumb></Breadcrumb> -->
-                <router-view></router-view>
+                <div class="container is-fluid pb-4">
+                    <router-view></router-view>
+                </div>
             </div>
             <Footer></Footer>
         </main>
@@ -18,7 +19,6 @@
 <script>
 import Nav from './Nav.vue'
 import Header from './Header.vue'
-import Breadcrumb from './Breadcrumb.vue'
 import Footer from './Footer.vue'
 import { ref, onMounted } from 'vue'
 
@@ -27,7 +27,6 @@ export default {
     components: {
         Nav,
         Header,
-        Breadcrumb,
         Footer
     },
     setup () {
@@ -53,7 +52,7 @@ export default {
 
 <style lang="sass" scoped>
 .app
-    min-width: 1280px
+    // min-width: 1280px
 
     .main
         flex: 1
@@ -61,4 +60,8 @@ export default {
 
         .page
             flex: 1
+
+            .is-fluid
+                padding-left: 1rem
+                padding-right: 1rem
 </style>

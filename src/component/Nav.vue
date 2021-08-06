@@ -1,6 +1,6 @@
 <template>
     <aside class="menu">
-        <router-link :to="{ name: 'Home'}">
+        <router-link :to="{ name: 'Home'}" exact>
             <figure class="image is-48x48 is-clickable logo">
                 <img :src="logo" alt="Logo" />
             </figure>

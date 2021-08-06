@@ -1,33 +1,29 @@
 <template>
-    <div class="container is-fluid pb-4">
-        <div class="tabs is-centered is-toggle is-toggle-rounded">
-            <ul>
-                <template v-for="(item, i) in categoryMap" :key="i">
-                    <li @click="changeCategory(item.name)" :class="[ item.isActive ? 'is-active' : '' ]"><a>{{ item.name  }} - {{ item.count }}</a></li>
-                </template>
-            </ul>
-        </div>
-        <div class="columns is-multiline is-centered">
-            <template v-for="(item, i) in listMap" :key="i">
-                <div class="column is-narrow">
-                    <div class="video is-clickable">
-                        <router-link :to="{ name: 'VideoView', params: { code: item.code } }">
-                            <figure class="image cover">
-                                <img :src="item.cover" alt="">
-                                <div class="play">
-                                    <span class="icon is-medium has-text-white"><i class="fa fa-2x fa-play"></i></span>
-                                </div>
-                            </figure>
-                        </router-link>
-                        <p class="subtitle is-6 has-text-dark mt-2 mb-2">{{ item.name }}</p>
-                        <p class="subtitle is-7 has-text-grey has-text-weight-light">
-                            {{ item.update_date  }}
-                            <span className="is-pulled-right">{{ item.list ? '合集 - ' + item.list.length : '' }}</span>
-                        </p>
-                    </div>
+    <div class="tags is-justify-content-center">
+        <template v-for="(item, i) in categoryMap" :key="i">
+            <span @click="changeCategory(item.name)" class="tag is-rounded" :class="[ item.isActive ? 'is-primary' : '' ]">{{ item.name  }} {{ item.count }}</span>
+        </template>
+    </div>
+    <div class="columns is-multiline">
+        <template v-for="(item, i) in listMap" :key="i">
+            <div class="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen">
+                <div class="video is-clickable">
+                    <router-link :to="{ name: 'VideoView', params: { code: item.code } }">
+                        <figure class="image cover">
+                            <img :src="item.cover" alt="">
+                            <div class="play">
+                                <span class="icon is-medium has-text-white"><i class="fa fa-2x fa-play"></i></span>
+                            </div>
+                        </figure>
+                    </router-link>
+                    <p class="subtitle is-6 has-text-dark mt-2 mb-2">{{ item.name }}</p>
+                    <p class="subtitle is-7 has-text-grey has-text-weight-light">
+                        {{ item.update_date  }}
+                        <span className="is-pulled-right">{{ item.list ? '合集 - ' + item.list.length : '' }}</span>
+                    </p>
                 </div>
-            </template>
-        </div>
+            </div>
+        </template>
     </div>
 </template>
 
@@ -129,7 +125,8 @@ export default {
 </script>
 <style lang="sass" scoped>
 .video
-    width: 360px
+    max-width: 360px
+    margin: 0 auto
 
     .cover
         .play
@@ -146,5 +143,4 @@ export default {
     :hover
         .play
             opacity: 0.8
-
 </style>
