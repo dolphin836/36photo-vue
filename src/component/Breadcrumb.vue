@@ -1,6 +1,29 @@
 <template>
     <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
+            <li>
+                <router-link :to="{ name: 'Home' }">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fa fa-home"></i>
+                        </span>
+                        <span>首页</span>
+                    </span>
+                </router-link>
+            </li>
+            <li>
+                <router-link :to="{ name: 'VideoList' }">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fab fa-youtube"></i>
+                        </span>
+                        <span>视频</span>
+                    </span>
+                </router-link>
+            </li>
+            <li class="is-active">
+                <a href="#" aria-current="page">详情</a>
+            </li>
             <template v-for="(item, i) in data" :key="i">
                 <li v-if="item.href">
                     <router-link :to="{ name: item.href }">{{ item.name }}</router-link>
@@ -16,7 +39,6 @@
 <script>
 import store from '../store'
 import { computed } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
 
 export default {
     name: 'BreadcrumbComponent',

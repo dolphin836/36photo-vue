@@ -4,7 +4,7 @@
         <main class="is-flex is-flex-direction-column main">
             <Header></Header>
             <div class="page">
-                <Breadcrumb></Breadcrumb>
+                <!-- <Breadcrumb></Breadcrumb> -->
                 <router-view></router-view>
             </div>
             <Footer></Footer>

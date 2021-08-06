@@ -1,5 +1,4 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import store from './store'
 
 const CommonLayout = () => import('./component/CommonLayout.vue')
 const Home = () => import('./page/Home.vue')
@@ -36,26 +35,27 @@ const routes = [
                     text: '动态',
                     icon: 'fa fa-user-circle',
                     group: 'LIFE'
-                },
-                text: '动态',
-                icon: 'fa fa-user-circle',
-                group: 'LIFE'
+                }
             },
             {
                 path: 'fm',
                 name: 'Fm',
                 component: Fm,
-                text: '音乐',
-                icon: 'fa fa-headphones',
-                group: 'LIFE'
+                meta: {
+                    text: '音乐',
+                    icon: 'fa fa-headphones',
+                    group: 'LIFE'
+                }
             },
             {
                 path: 'video',
                 name: 'VideoList',
                 component: VideoList,
-                text: '视频',
-                icon: 'fab fa-youtube',
-                group: 'LIFE'
+                meta: {
+                    text: '视频',
+                    icon: 'fab fa-youtube',
+                    group: 'LIFE'
+                }
             },
             {
                 path: 'video/:code',
@@ -67,81 +67,101 @@ const routes = [
                 path: 'film',
                 name: 'Film',
                 component: Film,
-                text: '电影',
-                icon: 'fa fa-film',
-                group: 'LIFE'
+                meta: {
+                    text: '电影',
+                    icon: 'fa fa-film',
+                    group: 'LIFE'
+                }
             },
             {
                 path: 'photo',
                 name: 'Photo',
                 component: Photo,
-                text: '照片',
-                icon: 'fa fa-camera',
-                group: 'LIFE'
+                meta: {
+                    text: '照片',
+                    icon: 'fa fa-camera',
+                    group: 'LIFE'
+                }
             },
             {
                 path: 'book',
                 name: 'Book',
                 component: Book,
-                text: '阅读',
-                icon: 'fa fa-tags',
-                group: 'LIFE'
+                meta: {
+                    text: '阅读',
+                    icon: 'fa fa-tags',
+                    group: 'LIFE'
+                }
             },
             {
                 path: 'text',
                 name: 'Text',
                 component: Text,
-                text: '语录',
-                icon: 'fa fa-clone',
-                group: 'LIFE'
+                meta: {
+                    text: '语录',
+                    icon: 'fa fa-clone',
+                    group: 'LIFE'
+                }
             },
             {
                 path: 'awesome',
                 name: 'Awesome',
                 component: Awesome,
-                text: '导航',
-                icon: 'fab fa-chrome',
-                group: 'LIFE'
+                meta: {
+                    text: '导航',
+                    icon: 'fab fa-chrome',
+                    group: 'LIFE'
+                }
             },
             {
                 path: 'game',
                 name: 'Game',
                 component: Game,
-                text: '游戏',
-                icon: 'fab fa-steam',
-                group: 'LIFE'
+                meta: {
+                    text: '游戏',
+                    icon: 'fab fa-steam',
+                    group: 'LIFE'
+                }
             },
             {
                 path: 'work',
                 name: 'Work',
                 component: Work,
-                text: '简历',
-                icon: 'fa fa-id-badge',
-                group: 'WORK'
+                meta: {
+                    text: '简历',
+                    icon: 'fa fa-id-badge',
+                    group: 'WORK'
+                } 
             },
             {
                 path: 'blog',
                 name: 'Blog',
                 component: Blog,
-                text: '博客',
-                icon: 'fab fa-wordpress',
-                group: 'WORK'
+                meta: {
+                    text: '博客',
+                    icon: 'fab fa-wordpress',
+                    group: 'WORK'
+                }
             },
             {
                 path: 'note',
                 name: 'Note',
                 component: Note,
-                text: '笔记',
-                icon: 'fa fa-bookmark',
-                group: 'WORK'
+                meta: {
+                    text: '笔记',
+                    icon: 'fa fa-bookmark',
+                    group: 'WORK'
+                }
             },
             {
                 path: 'open',
                 name: 'Open',
                 component: Open,
-                text: '开源',
-                icon: 'fab fa-linux',
-                group: 'WORK'
+                meta: {
+                    text: '开源',
+                    icon: 'fab fa-linux',
+                    group: 'WORK'
+                }
             }
         ]
     }
@@ -150,23 +170,6 @@ const routes = [
 const route = createRouter({
     history: createWebHistory(),
     routes: routes
-})
-
-route.beforeEach((to, from, next) => {
-    console.log(to)
-    // 更新路径导航数据
-    store.UPDATE_BREADCRUMB([
-        {
-            'name': '首页',
-            'href': 'Home'
-        },
-        {
-            'name': to.name,
-            'href': to.name
-        }
-    ])
-
-    next()
 })
 
 export { route, routes } 

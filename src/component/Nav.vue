@@ -64,12 +64,16 @@ export default {
         const groupMap = {}
 
         routes[0].children.forEach(route => {
-            if (route.hasOwnProperty('text')) {
-                if (! groupMap.hasOwnProperty(route.group)) {
-                    groupMap[route.group] = []
+            if (route.hasOwnProperty('meta')) {
+                if (! groupMap.hasOwnProperty(route.meta.group)) {
+                    groupMap[route.meta.group] = []
                 }
 
-                groupMap[route.group].push(route)
+                groupMap[route.meta.group].push({
+                    name: route.name,
+                    text: route.meta.text,
+                    icon: route.meta.icon
+                })
             }
         })
         // 转成数组
