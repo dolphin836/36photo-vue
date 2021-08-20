@@ -63,18 +63,20 @@ export default {
         // 整理数据
         const groupMap = {}
 
-        routes[0].children.forEach(route => {
-            if (route.hasOwnProperty('meta')) {
-                if (! groupMap.hasOwnProperty(route.meta.group)) {
-                    groupMap[route.meta.group] = []
-                }
+        routes[0].children.forEach(routeGroup => {
+            routeGroup.children.forEach(route => {
+                if (route.hasOwnProperty('meta')) {
+                    if (! groupMap.hasOwnProperty(route.meta.group)) {
+                        groupMap[route.meta.group] = []
+                    }
 
-                groupMap[route.meta.group].push({
-                    name: route.name,
-                    text: route.meta.text,
-                    icon: route.meta.icon
-                })
-            }
+                    groupMap[route.meta.group].push({
+                        name: route.name,
+                        text: route.meta.text,
+                        icon: route.meta.icon
+                    })
+                }
+            })
         })
         // 转成数组
         const data = []

@@ -41,11 +41,11 @@ export default {
             fetch('https://36video.oss-cn-hangzhou.aliyuncs.com/video.json')
                 .then(function (response) {
                     if (response.ok) {
-                        let json = response.json();
+                        const json = response.json();
                         
                         json.then(function(source) {
-                            let categoryName = ["全部"]
-                            let categoryData = [
+                            const categoryName = ["全部"]
+                            const categoryData = [
                                 {
                                     name: "全部",
                                     count: 0,
@@ -54,7 +54,7 @@ export default {
                             ]
                             // 解析数据得到分类数据
                             source.map((channel) => {
-                                let index = categoryName.indexOf(channel.category)
+                                const index = categoryName.indexOf(channel.category)
                     
                                 if (index === -1) { // 不存在
                                     categoryName.push(channel.category)
@@ -73,11 +73,11 @@ export default {
                             })
                             // 排序：按添加日期降序
                             source.sort(function (a, b) {
-                                let dateA = new Date(a.update_date)
-                                let timestampA = dateA.getTime()
+                                const dateA      = new Date(a.update_date)
+                                const timestampA = dateA.getTime()
 
-                                let dateB = new Date(b.update_date)
-                                let timestampB = dateB.getTime()
+                                const dateB      = new Date(b.update_date)
+                                const timestampB = dateB.getTime()
 
                                 return timestampB - timestampA
                             })
@@ -95,7 +95,7 @@ export default {
         // 切换分类
         const changeCategory = (categoryName) => {
             // 更新展示的数据
-            let list = []
+            const list = []
 
             dataMap.value.map((channel) => {
                 if (categoryName === '全部' || channel.category === categoryName) {

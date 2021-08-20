@@ -53,7 +53,7 @@ export default {
         onMounted(() => {
             fetchData()
         })
-        // 销魂
+        // 销毁
         onBeforeUnmount(() => {
             if (player.value) {
                 player.value.dispose()
