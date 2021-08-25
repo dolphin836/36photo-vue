@@ -2,7 +2,6 @@ import {createRouter, createWebHistory} from 'vue-router'
 
 const Layout = () => import('./component/Layout.vue')
 const CommonLayout = () => import('./component/CommonLayout.vue')
-const FmLayout = () => import('./component/FmLayout.vue')
 const Home = () => import('./page/Home.vue')
 const Sns = () => import('./page/Sns.vue')
 const Fm = () => import('./page/Fm.vue')
@@ -40,6 +39,16 @@ const routes = [
                         meta: {
                             text: '动态',
                             icon: 'fa fa-user-circle',
+                            group: 'LIFE'
+                        }
+                    },
+                    {
+                        path: 'fm',
+                        name: 'Fm',
+                        component: Fm,
+                        meta: {
+                            text: '音乐',
+                            icon: 'fa fa-headphones',
                             group: 'LIFE'
                         }
                     },
@@ -157,22 +166,6 @@ const routes = [
                             text: '开源',
                             icon: 'fab fa-linux',
                             group: 'WORK'
-                        }
-                    }
-                ]
-            },
-            {
-                path: '/fm',
-                component: FmLayout,
-                children: [
-                    {
-                        path: '',
-                        name: 'Fm',
-                        component: Fm,
-                        meta: {
-                            text: '音乐',
-                            icon: 'fa fa-headphones',
-                            group: 'LIFE'
                         }
                     }
                 ]
