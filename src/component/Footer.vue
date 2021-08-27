@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer pb-6">
+    <footer class="footer">
         <div class="content has-text-centered">
             <p class="is-size-7 has-text-dark mb-2">
                 <span class="icon is-small"><i class="far fa-copyright"></i></span>

@@ -3,14 +3,12 @@
         <template v-for="(item, i) in channelMap" :key="i">
             <div class="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen">
                 <div class="channel is-clickable">
-                    <router-link :to="{ name: 'VideoView', params: { code: item.code } }">
-                        <figure class="image cover">
-                            <img :src="item.photo" alt="">
-                            <div class="play">
-                                <span class="icon is-medium has-text-white"><i class="fa fa-2x fa-play"></i></span>
-                            </div>
-                        </figure>
-                    </router-link>
+                    <figure class="image cover" @click="play(item.code)">
+                        <img :src="item.photo" alt="">
+                        <div class="play">
+                            <span class="icon is-medium has-text-white"><i class="fa fa-2x fa-play"></i></span>
+                        </div>
+                    </figure>
                     <p class="title is-5 mt-2">{{ item.name }}</p>
                     <p class="subtitle is-7 has-text-grey has-text-weight-light">
                         {{ item.content  }}
@@ -22,8 +20,8 @@
 </template>
 
 <script>
-import { Howl } from 'howler'
 import { ref, onMounted } from 'vue'
+import store from '../store'
 
 export default {
     name: 'Fm',
@@ -43,11 +41,10 @@ export default {
                                        code: channel.code,
                                        name: channel.name,
                                     content: channel.content,
-                                      photo: channel.photo
+                                      photo: channel.photo,
+                                       data: channel.data
                                 }
                             })
-
-                            console.log(channel)
 
                             channelMap.value = channel
                         })
@@ -57,18 +54,17 @@ export default {
                     console.log(JSON.stringify(error))
                 })
         }
-
-        const play = () => {
-            // const sound = new Howl({
-            //     src: [mp3]
-            // })
-
-            // sound.play()
+        // 播放
+        const play = (code) => {
+            channelMap.value.forEach(channel => {
+                if (channel.code === code) {
+                    store.UPDATE_MUSIC_LIST(channel.data)
+                }
+            })
         }
 
         onMounted(() => {
             fetchData()
-            console.log(channelMap.value)
         })
 
         return {
